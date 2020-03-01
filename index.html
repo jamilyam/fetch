@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <title>Fetch method</title>
+  <style>
+    img {
+      height: 100px;
+      max-width: 100px;
+    }
+    ul { 
+      list-style: none;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="first_task">
+    <button onclick="getRequest()">Показать категории</button>
+    <ul id="result"></ul>
+  </div>
+  <div class="second_task">
+    <h1>Search Gifs</h1>
+    <form class="gif-form" action="">
+      <input type="text" id="form-value">
+      <button type="submit" class="search_button" onclick="onSearch()"> Search for GIFs </button>
+      <input type="reset" id="reset_button" value="Reset">
+    </form>
+    <div class="rando_facts animated bounceIn">
+      <img id="here_is_gif" src="">
+    </div>
+  </div>
+</body>
+</html>
