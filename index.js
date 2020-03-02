@@ -12,25 +12,20 @@ function getRequest() {
     document.getElementById('result').innerHTML = output;
   })
 }
+function renderGiphy (giphy) {
+  const img = document.createElement('IMG')
+  img.src = giphy.images.downsized.url
+	document.body.appendChild(img);
+}
+// let input = document.querySelector('.form-value').value;
+const url = 'https://api.giphy.com/v1/gifs/search?'
+  + 'api_key=8LdGa2ISJu7ESNs7gXyxTAtsGojbbz4v'
+  + '&q=tom and jerry'
+  + '&limit=5'
+  + '&offset=0'
+  + '&rating=G'
+  + '&lang=en';
 
-
-$( document ).ready(function(){
-      $('.search_button').on('click', function(){
-        var userInput = $('#form-value').val().trim();
-        userInput = userInput.replace(/ /g, "+");
-        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + userInput + '&api_key=DN35CTOvDRXCi1IOVuVsOdRlBXwoFZLU';
-        $.ajax({url: queryURL, method: 'GET'}).done(function(response){
-          console.log(response.data);
-          var giphyURL = response.data[0].images.fixed_height.url;
-          console.log(giphyURL)
-          $('#here_is_gif').attr('src', giphyURL);
-
-        });
-        $('#reset_button').on('click', function(){
-          $('#here_is_gif').attr("src",'');
-        })
-        return false;
-      })
-      
-
-    });
+fetch(url)
+  .then(res => res.json())
+  .then(({ data }) => data.map(renderGiphy));
