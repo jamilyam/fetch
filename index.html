@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="./index.js"></script>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <title>Fetch method</title>
   <style>
     img {
@@ -34,18 +33,15 @@
     <ul id="result"></ul>
   </div>
   <div class="second_task">
-  <h1> Let's Search Some Gifs! </h1>
-  <div class="info">
-    <p> Search below to the wonderful world of Gifs! </p>
-      <form class="gif-form">
-        <input type="text" id="form-value" class="search-input-rounded">
-        <button type="submit" class="search_button"> Search for GIFs </button>
-        <input type="reset" id="reset_button" value="Reset">
-      </form>
-      <div class="rando_facts animated bounceIn">
-        <img id="here_is_gif" src="">
-      </div>
-  </div>
+    <h1>Search Gifs</h1>
+    <form class="gif-form" action="">
+      <input type="text" id="form-value">
+      <button type="submit" class="search_button" onclick="renderGiphy()"> Search for GIFs </button>
+      <input type="reset" id="reset_button" value="Reset">
+    </form>
+    <div class="rando_facts animated bounceIn">
+      <span id="here_is_gif"></span>
+    </div>
   </div>
 </body>
 </html>
