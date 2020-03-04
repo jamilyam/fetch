@@ -12,28 +12,20 @@ function getRequest() {
     document.getElementById('result').innerHTML = output;
   })
 }
+function renderGiphy (giphy) {
+  const img = document.createElement('IMG')
+  img.src = giphy.images.downsized.url
+	document.body.appendChild(img);
+}
+// let input = document.querySelector('.form-value').value;
+const url = 'https://api.giphy.com/v1/gifs/search?'
+  + 'api_key=8LdGa2ISJu7ESNs7gXyxTAtsGojbbz4v'
+  + '&q=tom and jerry'
+  + '&limit=5'
+  + '&offset=0'
+  + '&rating=G'
+  + '&lang=en';
 
-
-function onSearch() {
-    let input = getElementById('form-value').value;
-
-
-request = new XMLHttpRequest;
-	request.open('GET', 'http://api.giphy.com/v1/gifs/search?q&api_key=DN35CTOvDRXCi1IOVuVsOdRlBXwoFZLU'+input, true);
-	
-	request.onload = function() {
-		if (request.status >= 200 && request.status < 400){
-			data = JSON.parse(request.responseText).data.image_url;
-			console.log(data);
-			document.getElementById("here_is_gif").innerHTML = '<center><img src = "'+data+'"  title="GIF via Giphy"></center>';
-		} else {
-			console.log('reached giphy, but API returned an error');
-		 }
-	};
-
-	request.onerror = function() {
-		console.log('connection error');
-	};
-
-  request.send();
-}  
+fetch(url)
+  .then(res => res.json())
+  .then(({ data }) => data.map(renderGiphy));
